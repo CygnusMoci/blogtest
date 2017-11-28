@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
  **/
 public class MyRealm extends AuthorizingRealm {
     @Autowired
-    @Qualifier("BloggerService")
+    @Qualifier("bloggerService")
     private BloggerService bloggerService;
 
     @Override

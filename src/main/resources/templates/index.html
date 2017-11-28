@@ -72,7 +72,7 @@
                     </p>
                     <ul class="list-unstyled" th:each="blogType:${blogTypeList}" ><!-- th:each="blogType:${blogTypes}" -->
                         <li>							<!-- 这里不需要这么写了，直接参考下面的日期格式获取 -->
-                            <span><a href="#" th:text="${blogType.typeName}+' ('+${blogType.blogTypeCount}+')'" >测试类型 (测试篇数)</a></span><!-- th:text="${blogType.typeName}" -->
+                            <span><a href="#" th:text="${blogType.type_name}+' ('+555+')'" >测试类型 (测试篇数)</a></span><!-- th:text="${blogType.typeName}" -->
                         </li>
                     </ul>
                 </div>
@@ -89,6 +89,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
 
         <div class="col-md-9">
@@ -98,7 +99,6 @@
                     <em><span class="marker">最近博客</span></em>
                 </h3>
             </div>
-
             <div class="row" th:each="blogArticle:${blogArticleList}">
                 <div class="col-md-12">
                     <h2>
@@ -106,38 +106,16 @@
                             测试标题
                         </a>
                     </h2>
-                    <p th:text="${blogArticle.summary}">
+                    <p th:text="${blogArticle.content}">
                         测试文章摘要
                     </p>
 
                     <div style="float:left">
                         <a class="btn" href="#">查看全文 »</a>
                     </div>
-                    <div style="float:right">
-                        <small th:text="${#dates.format(blogArticle.releaseDate,'yyyy/MM/dd HH:mm')}"></small>
-                    </div>
+
 
                     <hr/>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12" style="text-align: center;">
-                    <ul class="pagination pagination-centered">
-
-                        <li><a th:text="${pageBlog.prePage}==0?${pageBlog.firstPage}:${pageBlog.prePage}">xx</a></li>
-                        <li><a href="#" th:href="@{/index( pageNum=${pageBlog.prePage}==0?${pageBlog.firstPage}:${pageBlog.prePage})}">上一页</a></li>
-
-                        <li><a href="#" th:href="@{/index(pageNum=${pageBlog.nextPage}==0?${pageBlog.lastPage}:${pageBlog.nextPage})}">下一页</a></li>
-                        <li><a th:text="${pageBlog.nextPage}==0?${pageBlog.lastPage}:${pageBlog.nextPage}">xx</a></li>
-
-                        <li><a href="#" th:onclick="'toPage(\''+${pageBlog.firstPage}+'\',\''+${pageBlog.lastPage}+'\');'">跳转至</a></li>
-                        <li><a><input type="text" id="pageNum" value="1" style="width:20px;height:20px;" /></a></li>
-
-                        <li><a>总页数</a></li>
-                        <li><a th:text="${pageBlog.lastPage}">xx</a></li>
-
-                    </ul>
                 </div>
             </div>
 

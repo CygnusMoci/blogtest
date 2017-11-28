@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * @author moci
  * @create 2017-11-24 3:22 PM
  **/
-@Service("BloggerService")
+@Service("bloggerService")
 public class BloggerServiceImpl implements BloggerService {
 
     @Autowired

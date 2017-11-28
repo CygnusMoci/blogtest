@@ -7,8 +7,8 @@ package com.moci.blogtest.entity;
 public class Blog {
     private Integer id;
     private String title;
-    private String content;
-    private Integer clickHit;
+    private String content; //内容
+    private Integer clickHit; //点击数
 
     public Blog(){}
 

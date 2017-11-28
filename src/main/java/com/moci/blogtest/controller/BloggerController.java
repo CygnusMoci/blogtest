@@ -21,7 +21,7 @@ import com.moci.blogtest.service.BloggerService;
 @RequestMapping("/blogger")
 public class BloggerController {
     @Autowired
-    @Qualifier("BloggerService")
+    @Qualifier("bloggerService")
     private BloggerService bloggerService;
 
     @RequestMapping("/login")
@@ -36,9 +36,8 @@ public class BloggerController {
         System.out.println(token.getPassword());
         try {
             subject.login(token);// 会交给MyRealm中的doGetAuthenticationInfo方法去验证
-            System.out.println("******************实现了try******************");
             redirectAttributes.addFlashAttribute("username",username);
-            return "index";//重定向到此路径，进入后台管理系统。
+            return "redirect:/admin/main";//重定向到此路径，进入后台管理系统。
         } catch (AuthenticationException e) {
             e.printStackTrace();
             model.addAttribute("message", "用户名或密码错误");
