@@ -17,18 +17,21 @@ import lombok.ToString;
 public class Blogger {
     private Integer id;
     private String  username;
-    private Integer password;
+    private String password;
     private String  email;
     public Blogger(){};
 
 
 
     
-    public Integer getPassword() {
+    public String getPassword() {
         return password;
     }
+
+
 
     public String getUsername() {
         return username;
     }
+
 }

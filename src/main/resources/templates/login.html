@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragment::header"/>
-<title>用户登录页面</title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用户登录页面</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
 
 <body>
 
 <div class="col-md-6 col-md-offset-3" style="margin-top:50px;height:50px;">
-    <h4 class="text-danger" th:text="这里是thtext" style="text-align: center;">用户名或密码错误</h4>
+    <h4 class="text-danger" th:text="${message}" style="text-align: center;">用户名111或密码错误</h4>
 </div>
 
 <form id="login" class="form-horizontal" role="form" th:action="@{/blogger/login}" th:method="POST">

@@ -20,7 +20,9 @@ public interface BloggerDao {
      * @return
      */
 
-    @Select("select * from t_blogger where USERNAME = #{USERNAME}")
+    @Select("select * from " +
+            "t_blogger where " +
+            "USERNAME = #{USERNAME}")
     Blogger selectByUsername(String username);
 
     @Select("select * from t_blogger where id = #{id}")

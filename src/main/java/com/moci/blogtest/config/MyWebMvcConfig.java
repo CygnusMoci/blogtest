@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * @author moci
  * @create 2017-11-24 4:27 PM
+ * 管理页面跳转
  **/
 @Configuration
 public class MyWebMvcConfig extends WebMvcConfigurerAdapter {
