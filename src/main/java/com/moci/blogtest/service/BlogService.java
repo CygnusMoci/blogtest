@@ -1,6 +1,7 @@
 package com.moci.blogtest.service;
 
 import com.moci.blogtest.entity.Blog;
+import com.moci.blogtest.entity.BlogType;
 
 import java.util.List;
 
@@ -11,12 +12,6 @@ import java.util.List;
 public interface BlogService {
 
     Blog findById (Integer id);
-    Blog getBlogTypeById(Integer id);
-    /**
-     * 详情请看dao层
-     * @return
-     */
+    BlogType getBlogTypeById(Integer id);
 
-    List<Blog> getBlogArticle();
-    List<Blog> searchBlog(String searchParam);
 }

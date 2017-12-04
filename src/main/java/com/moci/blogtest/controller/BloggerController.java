@@ -37,7 +37,7 @@ public class BloggerController {
         try {
             subject.login(token);// 会交给MyRealm中的doGetAuthenticationInfo方法去验证
             redirectAttributes.addFlashAttribute("username",username);
-            return "redirect:/admin/main";//重定向到此路径，进入后台管理系统。
+            return "redirect:/index";//重定向到此路径，进入后台管理系统。
         } catch (AuthenticationException e) {
             e.printStackTrace();
             model.addAttribute("message", "用户名或密码错误");

@@ -24,8 +24,8 @@ import java.util.LinkedHashMap;
 public class ShiroConfig {
 
     /**
-     * shiroFilter
-     * @param manager
+     * shiro拦截器
+     * @param manager 管理员权限
      * @return
      */
     @Bean(name="shiroFilter")
@@ -39,6 +39,7 @@ public class ShiroConfig {
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         filterChainDefinitionMap.put("/login", "anon"); // 表示可以匿名访问
         filterChainDefinitionMap.put("/admin/**", "authc");// 管理员权限需要验证过滤
+        filterChainDefinitionMap.put("/index", "authc");// 管理员权限需要验证过滤
 
         bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return bean;

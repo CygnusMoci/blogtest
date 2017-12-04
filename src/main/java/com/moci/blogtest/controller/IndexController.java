@@ -42,18 +42,21 @@ public class IndexController {
 
         Blogger blogger = bloggerService.findByUsername("moci");// 因为只是自已是主人，所以直接传入名字
         List<BlogType> blogTypeList = blogTypeService.getBlogTypeData();// 获取文章类型信息
-        List<Blog> blogArticleList = blogService.getBlogArticle();//获取文章主体信息
         PageHelper.startPage(pageNum, pageSize);// 默认从第一页开始，每页五条
-        PageInfo<Blog> pageBlog = new PageInfo<Blog>(blogArticleList);//将查出来的blogArticleList绑定到pageInfo中
+        Blog[] blogs = new Blog[10];
+        for (int i = 0; i <blogs.length ; i++) {
+            blogs[i] = blogService.findById(i);
+        }
 
         System.out.println("个人资料: " + blogger);
         System.out.println("文章类型: " + blogTypeList);
-        System.out.println("文章主体: " + blogArticleList);
+
+        for (int i = 0; i <blogs.length ; i++) {
+            model.addAttribute("blog ["+i+"]",blogs[i]); //存入每章博客
+        }
 
         model.addAttribute("blogger", blogger);// 存入个人资料
         model.addAttribute("blogTypeList", blogTypeList);// 存入文章类型
-        model.addAttribute("blogArticleList", blogArticleList);// 存入文章主题
-        model.addAttribute("pageBlog", pageBlog);// 设置pageBlog属性
 
         return "index";
     }

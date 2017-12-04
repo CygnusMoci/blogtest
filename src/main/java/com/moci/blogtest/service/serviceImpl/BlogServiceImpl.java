@@ -2,11 +2,10 @@ package com.moci.blogtest.service.serviceImpl;
 
 import com.moci.blogtest.dao.BlogDao;
 import com.moci.blogtest.entity.Blog;
+import com.moci.blogtest.entity.BlogType;
 import com.moci.blogtest.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author moci
@@ -23,19 +22,10 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public Blog getBlogTypeById(Integer id) {
+    public BlogType getBlogTypeById(Integer id) {
         return blogDao.getBlogTypeById(id);
     }
 
 
-    @Override
-    public List<Blog> getBlogArticle() {
-        return blogDao.getBlogArticle();
-    }
-
-    @Override
-    public List<Blog> searchBlog(String searchParam) {
-        return blogDao.searchBlog(searchParam);
-    }
 
 }
