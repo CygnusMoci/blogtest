@@ -33,13 +33,15 @@ public class ShiroConfig {
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         bean.setSecurityManager(manager);
         // 配置登录的url
-        bean.setLoginUrl("/login");
+        bean.setLoginUrl("login");
         //bean.setSuccessUrl("/admin/main");
         // 过滤链
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         filterChainDefinitionMap.put("/login", "anon"); // 表示可以匿名访问
-        filterChainDefinitionMap.put("/admin/**", "authc");// 管理员权限需要验证过滤
         filterChainDefinitionMap.put("/index", "authc");// 管理员权限需要验证过滤
+        filterChainDefinitionMap.put("/test","anon"); //测试
+//        filterChainDefinitionMap.put("/admin/**", "authc");// 管理员权限需要验证过滤
+
 
         bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return bean;

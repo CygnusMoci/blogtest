@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -18,13 +20,19 @@ import com.moci.blogtest.service.BloggerService;
  * @create 2017-11-24 4:21 PM
  **/
 @Controller
-@RequestMapping("/blogger")
 public class BloggerController {
     @Autowired
     @Qualifier("bloggerService")
     private BloggerService bloggerService;
 
-    @RequestMapping("/login")
+    @GetMapping("/login")
+    public String login(){
+
+        return "login";
+    }
+
+
+    @PostMapping("/login")
     public String login(@RequestParam(name ="username",required=false) String username,
                         @RequestParam(name = "password",required=false) String password,
                         Model model,
@@ -37,11 +45,19 @@ public class BloggerController {
         try {
             subject.login(token);// 会交给MyRealm中的doGetAuthenticationInfo方法去验证
             redirectAttributes.addFlashAttribute("username",username);
-            return "redirect:/index";//重定向到此路径，进入后台管理系统。
+            return "/index";//重定向到此路径，进入后台管理系统。
         } catch (AuthenticationException e) {
             e.printStackTrace();
             model.addAttribute("message", "用户名或密码错误");
             return "login";//返回登录视图
         }
+    }
+
+    @RequestMapping("/logout")
+    public String logout(){
+        System.out.println("退出登陆");
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return "login";
     }
 }
