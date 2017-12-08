@@ -7,6 +7,8 @@ import com.moci.blogtest.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author moci
  * @create 2017-11-28 1:56 PM
@@ -26,6 +28,10 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.getBlogTypeById(id);
     }
 
+    @Override
+    public List<Blog> selectAll() {
+        return blogDao.selectAll();
+    }
 
 
 }

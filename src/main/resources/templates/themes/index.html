@@ -54,8 +54,29 @@
 
 <div style="margin: 0 auto; padding-bottom: 0%; padding-top: 5%; width: 420px;">
     <!--加了个圆角矩形(？-->
-    <div class="panel panel-color panel-danger panel-pages panel-shadow">
+    <div class="panel panel-color panel-danger panel-pages panel-shadow" style="height: 500px">
         <h3 class="text-center m-t-10" >欢&nbsp;迎&nbsp;登&nbsp;陆</h3>
+        <h3 class="text-center m-t-10" >这是一个测试主页</h3>
+
+
+        <div class="post-lists">
+            <div class="post-lists-body">
+                <!--把blogs这个list对象给传递了进来-->
+                <div class="post-list-item" th:each="blogs: ${blogs}">
+                    <!--每一个都会序号都会遍历一边-->
+                    <li class="list-group-item text-center">
+                        <div><span th:text="${blogs.id}">序号</span></div>
+                        <div><span th:text="${blogs.title}" >标题</span></div>
+                        <div><span th:text="${blogs.content}"> 内容</span></div>
+                    </li>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
     </div>
 </div>
 

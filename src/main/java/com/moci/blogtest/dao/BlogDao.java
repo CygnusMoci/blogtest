@@ -33,4 +33,12 @@ public interface BlogDao {
     BlogType getBlogTypeById(Integer id);
 
 
+    /**
+     * 展示所有的Blog
+     * @return
+     */
+    @Select("select * from t_blog")
+    List<Blog> selectAll();
+
+
 }

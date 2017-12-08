@@ -15,11 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.moci.blogtest.service.BloggerService;
+
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author moci
  * @create 2017-11-24 4:21 PM
  **/
 @Controller
+@RequestMapping("/themes")
 public class BloggerController {
     @Autowired
     @Qualifier("bloggerService")
@@ -27,8 +31,7 @@ public class BloggerController {
 
     @GetMapping("/login")
     public String login(){
-
-        return "login";
+        return "/themes/login";
     }
 
 
@@ -45,11 +48,11 @@ public class BloggerController {
         try {
             subject.login(token);// 会交给MyRealm中的doGetAuthenticationInfo方法去验证
             redirectAttributes.addFlashAttribute("username",username);
-            return "/index";//重定向到此路径，进入后台管理系统。
+            return "/themes/index";//重定向到此路径，进入后台管理系统。
         } catch (AuthenticationException e) {
             e.printStackTrace();
             model.addAttribute("message", "用户名或密码错误");
-            return "login";//返回登录视图
+            return "themes/login";//返回登录视图
         }
     }
 
@@ -58,6 +61,6 @@ public class BloggerController {
         System.out.println("退出登陆");
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
-        return "login";
+        return "themes/login";
     }
 }

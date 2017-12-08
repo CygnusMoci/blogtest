@@ -14,9 +14,9 @@ public class MyWebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("/login");
-      //  registry.addViewController("/index").setViewName("/index");//首页跳转  如果写入的话 可以跳过登陆验证直接访问index
-        registry.addViewController("/login").setViewName("/login");//登录页面
+        registry.addViewController("/").setViewName("/themes/login");
+        registry.addViewController("/themes/index").setViewName("/themes/index");//首页跳转  如果写入的话 可以跳过登陆验证直接访问index
+        registry.addViewController("/themes/login").setViewName("/themes/login");//登录页面
 
         registry.addViewController("/test").setViewName("/test"); //测试
 //        registry.addViewController("/admin/main").setViewName("admin/main");//后台管理的主页

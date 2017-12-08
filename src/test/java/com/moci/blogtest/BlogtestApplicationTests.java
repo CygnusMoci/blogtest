@@ -1,5 +1,6 @@
 package com.moci.blogtest;
 
+import com.moci.blogtest.service.BlogService;
 import com.moci.blogtest.service.BlogTypeService;
 import com.moci.blogtest.service.BloggerService;
 import org.junit.Test;
@@ -14,7 +15,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class BlogtestApplicationTests {
 
 	@Autowired
+	@Qualifier("bloggerService")
 	BloggerService bloggerService;
+
 
 	@Test
 	public void testSelectByUsername() {
@@ -30,5 +33,15 @@ public class BlogtestApplicationTests {
 	public void testGetBlogTypeData(){
 		System.out.println(blogTypeService.getBlogTypeData());
 	}
+
+
+	@Autowired
+	@Qualifier("blogService")
+	BlogService blogService;
+	@Test
+	public void testSelectALL(){
+		System.out.println(blogService.selectAll());
+	}
+
 
 }

@@ -2,6 +2,7 @@ package com.moci.blogtest.service;
 
 import com.moci.blogtest.entity.Blog;
 import com.moci.blogtest.entity.BlogType;
+import com.moci.blogtest.entity.Blogger;
 
 import java.util.List;
 
@@ -13,5 +14,6 @@ public interface BlogService {
 
     Blog findById (Integer id);
     BlogType getBlogTypeById(Integer id);
+    List<Blog> selectAll();
 
 }
