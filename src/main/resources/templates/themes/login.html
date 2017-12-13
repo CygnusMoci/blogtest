@@ -58,7 +58,7 @@
             <h3 class="text-center m-t-10" th:text="${message}">欢&nbsp;迎&nbsp;登&nbsp;陆</h3>
         </div>
         <div class="panel-body">
-            <form class="form-horizontal m-t-20" id="loginForm" th:action="@{/themes/login}" th:method="POST">
+            <form class="form-horizontal m-t-20" method="post" id="loginForm" onsubmit="return checkForm()">
 
                 <div class="form-group">
                     <div class="col-xs-12">
@@ -80,7 +80,6 @@
                         </button>
                     </div>
                 </div>
-
             </form>
         </div>
     </div>
@@ -109,13 +108,13 @@
         var tale = new $.tale();
         function checkForm() {
             tale.post({
-                url: '/admin/login',
+                url: '/login',
                 data: $("#loginForm").serialize(),
                 success: function (result) {
                     if (result && result.success) {
                         window.location.href = '/index';
                     } else {
-                        tale.alertError(result.msg || '登录失败');
+                        tale.alertError('登录失败');
                     }
                 }
             });
@@ -123,5 +122,6 @@
         }
         /*]]>*/
     </script>
+<!--   -->
 </body>
 </html>

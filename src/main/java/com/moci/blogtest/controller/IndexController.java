@@ -53,34 +53,40 @@ public class IndexController extends BaseController {
     /**
      * 首页
      * @param request
-     * @param limit
      * @return
      */
     @GetMapping(value = {"index"})
-    public String index(Model request, @RequestParam(value = "limit", defaultValue = "12") int limit) {
-        return this.index(request, 1, limit);
-    }
-
-
-
-    /**
-     * 首页分页(虽然我只想要一页面)
-     * @param request
-     * @param p
-     * @param limit
-     * @return
-     */
-    @GetMapping("page/{p}")
-    public String index(Model request,
-                        @PathVariable int p,
-                        @RequestParam(value = "limit", defaultValue = "12") int limit){
-         p = p<0||p> WebConst.MAX_PAGE?1:p; //页数限定了页数P的范围
+    public String index(Model request) {
         List<Blog> blogs = blogService.selectAll();
         request.addAttribute("blogs",blogs);
-        System.out.println("添加了articles请求相应");
-        if (p > 1) {
-            this.title(request, "第" + p + "页");
-        }
-        return this.render("index");
+        System.out.println("存入blogs数据");
+        return "themes/index";
     }
+
+
+
+
+
+
+
+//    /**
+//     * 首页分页(虽然我只想要一页面)
+//     * @param request
+//     * @param p
+//     * @param limit
+//     * @return
+//     */
+//    @GetMapping("page/{p}")
+//    public String index(Model request,
+//                        @PathVariable int p,
+//                        @RequestParam(value = "limit", defaultValue = "12") int limit){
+//         p = p<0||p> WebConst.MAX_PAGE?1:p; //页数限定了页数P的范围
+//        List<Blog> blogs = blogService.selectAll();
+//        request.addAttribute("blogs",blogs);
+//        System.out.println("添加了blogs请求相应");
+//        if (p > 1) {
+//            this.title(request, "第" + p + "页");
+//        }
+//        return this.render("index");
+//    }
 }
