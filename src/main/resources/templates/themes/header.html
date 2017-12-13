@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="header">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link th:href="@{//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link th:href="@{//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/admin/css/style.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{//cdn.bootcss.com/limonte-sweetalert2/6.4.1/sweetalert2.min.css}" rel="stylesheet"/>
 </head>
+
+    <style>
+
+        .div{
+            float:left;
+        }
+    </style>
 <body>
+
+<div th:style="'background-color: rgba(0, 0, 0, 0.2)'" class="text-center">
+    <div th:style="'background-color: rgba(0, 0, 0, 0.5);width:400px'"  class=" panel panel-color panel-danger panel-pages panel-shadow" >
+        <p style="color: white">
+            我是在左边
+        </p>
+    </div>
+
+    <div th:style="'margin-left:400px; background-color: rgba(0, 0, 0, 0.5);width:400px'"  class=" panel panel-color panel-danger panel-pages panel-shadow" >
+        <p style="color: white">
+            我是右边
+        </p>
+    </div>
+</div>
+
+
+
+
 
 </body>
 </html>

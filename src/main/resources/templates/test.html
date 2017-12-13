@@ -13,6 +13,8 @@
     <link th:href="@{//cdn.bootcss.com/limonte-sweetalert2/6.4.1/sweetalert2.min.css}" rel="stylesheet"/>
 
 </head>
+<!--插入头部-->
+<div th:replace="themes/header::header"></div>
 <body>
 
 <p style="text-align: center">
@@ -66,4 +68,6 @@
 
 
 </body>
+    <!--插入footer页面-->
+    <div th:replace="themes/footer::footer"></div>
 </html>
