@@ -1,1 +1,1 @@
-INSERT INTO myblog.t_blogger (id, username, password, email) VALUES (1, 'admin', 123456, '');
+INSERT INTO myblog.t_blogger (id, username, password, email) VALUES (2, 'admin', 123456, '');
