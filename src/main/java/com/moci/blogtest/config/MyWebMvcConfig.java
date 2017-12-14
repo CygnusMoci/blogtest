@@ -21,5 +21,6 @@ public class MyWebMvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/test").setViewName("/test"); //测试
         registry.addViewController("/header").setViewName("/themes/header");
         registry.addViewController("/footer").setViewName("/themes/footer");
+
     }
 }

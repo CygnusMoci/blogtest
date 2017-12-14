@@ -46,7 +46,7 @@
         }
     </style>
 </head>
-<body th:style="'background:url(/admin/images/bg/'+@{${bgp}}+');no-repeat; background-size: cover;'">
+<body th:style="'background-color:rgba(0,0,0,0)'">
 
 <!--padding-bottom 跟 top 确定了div在整体的位置-->
 <div style="margin: 0 auto; padding-bottom: 0%; padding-top: 5%; width: 420px;">
@@ -55,7 +55,7 @@
         <!--增加背景图片 定位在style.min.css里面-->
         <div class="panel-heading bg-img">
             <div class="bg-overlay"></div>
-            <h3 class="text-center m-t-10" th:text="${message}">欢&nbsp;迎&nbsp;登&nbsp;陆</h3>
+            <h3 class="text-center m-t-10" >欢&nbsp;迎&nbsp;登&nbsp;陆</h3>
         </div>
         <div class="panel-body">
             <form class="form-horizontal m-t-20" method="post" id="loginForm" onsubmit="return checkForm()">

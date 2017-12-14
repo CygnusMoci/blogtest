@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      th:with="bgp = '2.png'"
+      th:with="bgp = '1.png'"
       th:style="'background:url(/admin/images/bg/'+@{${bgp}}+');no-repeat; background-size: cover;'"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
@@ -15,6 +15,7 @@
     <link th:href="@{//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css}" rel="stylesheet"/>
     <link th:href="@{//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/admin/css/style.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/admin/css/index.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{//cdn.bootcss.com/limonte-sweetalert2/6.4.1/sweetalert2.min.css}" rel="stylesheet"/>
 
 
@@ -24,25 +25,6 @@
             -webkit-box-shadow: 0px 0px 10px 0px rgba(39, 49, 65, 0.1);
             box-shadow: 0px 0px 10px 0px rgba(39, 49, 65, 0.1);
         }
-        .bg-overlay {
-            -moz-border-radius: 6px 6px 0 0;
-            -webkit-border-radius: 6px 6px 0 0;
-            background-color: rgba(47, 51, 62, 0.3);
-            border-radius: 6px 6px 0 0;
-            height: 100%;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
-        .input-border {
-            font-size: 14px;
-            width: 100%;
-            height: 40px;
-            border-radius: 0;
-            border: none;
-            border-bottom: 1px solid #dadada;
-        }
 
         .bg-img > h3 {
             text-shadow: 0px 2px 3px #555;
@@ -50,44 +32,56 @@
         }
     </style>
 </head>
-<body th:style="'background:url(/admin/images/bg/'+@{${bgp}}+');no-repeat; background-size: cover;'">
 
-<div style="margin: 0 auto; padding-bottom: 0%; padding-top: 5%; width: 420px;">
-    <!--加了个圆角矩形(？-->
-    <div class="panel panel-color panel-danger panel-pages panel-shadow" style="height: 500px">
-        <h3 class="text-center m-t-10" >欢&nbsp;迎&nbsp;登&nbsp;陆</h3>
-        <h3 class="text-center m-t-10" >这是一个测试主页</h3>
+<!--插入头部-->
+<div th:replace="themes/header::header"></div>
 
+<body th:style="'background-color:rgba(0,0,0,0)'">
 
-        <div class="post-lists">
-            <div class="post-lists-body">
-                <!--把blogs这个list对象给传递了进来-->
-                <div class="post-list-item" th:each="blogs: ${blogs}">
-                    <!--每一个都会序号都会遍历一边-->
-                    <li class="list-group-item text-center">
-                        <div><span th:text="${blogs.id}">序号</span></div>
-                        <div><span th:text="${blogs.title}" >标题</span></div>
-                        <div><span th:text="${blogs.content}"> 内容</span></div>
-                    </li>
+    <div style="text-align: center;margin: 2% auto; padding:5% 5%;height: 720px; width: 1440px;background-color:rgba(0,0,0,0.2)">
+        <!--加了个圆角矩形(？-->
+        <div class="panel panel-color panel-danger panel-pages panel-shadow" style="overflow: auto;height: 500px; width:400px;float:right;">
+            <h3 class="text-center m-t-10" >源&nbsp;氏&nbsp;物&nbsp;语</h3>
+            <div class="post-lists">
+                <div class="post-lists-body">
+                    <!--把blogs这个list对象给传递了进来-->
+                    <ul th:each="blogs: ${blogs}">
+                        <!--每一个都会序号都会遍历一边-->
+                        <li>
+                            <a th:text="${blogs.id}"></a>
+                            <a th:text="${blogs.content}"></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
 
+        <div class="text" style="margin-right: 20px;">
+            <p class="font">
+                我知道你听不到声音弹不了琴，全都知道，但我还是选择你。真如你所说的，或许无法弹奏出令人满意的音乐来，但还是得弹，只要有弹奏的机会和愿望。
+            </p>
+        </div>
 
-
-
-
+        <div class="text">
+            <p class="font">
+                其实，即使极其寻常的话，只要从容道来，听着自然感到悦耳；就是最普通的讲唱故事，只要用充满感情的声调，单唱那上下句的某些地方，一般不求甚解的听众，也会认为十分有趣哩；反之，若是碎嘴快舌，就算是话的内容再有深度，听的人也不会感觉其妙了。
+            </p>
+        </div>
     </div>
-</div>
 
 
 
-<script th:src="@{/js/index.js}" type="text/javascript"></script>
-<script th:src="@{//cdn.bootcss.com/jquery/2.2.3/jquery.min.js}"></script>
-<script th:src="@{//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
-<script th:src="@{//cdn.bootcss.com/limonte-sweetalert2/6.4.1/sweetalert2.min.js}"></script>
-<script th:src="@{/admin/js/base.js}"></script>
+
+
+    <script th:src="@{/js/index.js}" type="text/javascript"></script>
+    <script th:src="@{//cdn.bootcss.com/jquery/2.2.3/jquery.min.js}"></script>
+    <script th:src="@{//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+    <script th:src="@{//cdn.bootcss.com/limonte-sweetalert2/6.4.1/sweetalert2.min.js}"></script>
+    <script th:src="@{/admin/js/base.js}"></script>
 
 
 </body>
+<!--插入footer页面-->
+<div th:replace="themes/footer::footer"></div>
+
 </html>

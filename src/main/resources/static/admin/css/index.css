@@ -1,0 +1,45 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+li {
+    float: left;
+}
+li a {
+    line-height:30px;
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    color: whitesmoke;
+    background-color: #111;
+}
+
+.active {
+    color:black;
+    background-color: white;
+}
+body{min-height:100%;margin:0;padding:0;position:relative;}
+
+.text{
+    text-align: left;
+    height: 500px;
+    width: 300px;
+    float:left;
+    padding: 20px;
+    background-color:rgba(0,0,0,0.5)
+}
+
+.font{
+    letter-spacing:2px;
+    line-height:150%;
+    color: white;
+    text-indent: 30px
+}

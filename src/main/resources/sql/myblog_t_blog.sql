@@ -1,0 +1,9 @@
+INSERT INTO myblog.t_blog (id, title, content, clickHit, type_id) VALUES (0, null, '山樱若是多情种，今岁应开墨色花', null, null);
+INSERT INTO myblog.t_blog (id, title, content, clickHit, type_id) VALUES (1, 'aaaa', '情似孤舟甫离岸，渐行渐远渐生疏。', 111, 1);
+INSERT INTO myblog.t_blog (id, title, content, clickHit, type_id) VALUES (2, 'ssss', '月华幽光羡登临，红尘悲怆我自知。', 222, 1);
+INSERT INTO myblog.t_blog (id, title, content, clickHit, type_id) VALUES (3, 'dddd', '心迹未予外人阅，花枝一束故人香。', 333, 2);
+INSERT INTO myblog.t_blog (id, title, content, clickHit, type_id) VALUES (4, 'fff', '不似明灯照，又非暗幕张。', 444, 2);
+INSERT INTO myblog.t_blog (id, title, content, clickHit, type_id) VALUES (5, 'gggg', '相思到死有何益，生前欢会胜黄金。', 555, 3);
+INSERT INTO myblog.t_blog (id, title, content, clickHit, type_id) VALUES (6, '第五条', '哀此东篱菊，当年共护持。', 0, 2);
+INSERT INTO myblog.t_blog (id, title, content, clickHit, type_id) VALUES (7, null, '泪如清水寻常物，来途早断恐难逢。', null, null);
+INSERT INTO myblog.t_blog (id, title, content, clickHit, type_id) VALUES (8, null, '恨事多有难忘处，奈何再会在歧路。', null, null);

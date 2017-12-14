@@ -54,10 +54,11 @@ public class BloggerController {
         }
     }
 
-    @RequestMapping("/logout")
-    public void logout(){
+    @GetMapping("/logout")
+    public String logout(){
         System.out.println("退出登陆");
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
+        return "/themes/login";
     }
 }

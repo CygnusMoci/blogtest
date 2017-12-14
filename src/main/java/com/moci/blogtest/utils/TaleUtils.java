@@ -116,6 +116,7 @@ public class TaleUtils {
         }
         return hexString.toString();
     }
+
     /**
      * 返回当前登录用户
      *
